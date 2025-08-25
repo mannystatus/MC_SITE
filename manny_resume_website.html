@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manny Contreras - IT Management & Technology Solutions</title>
+    <meta name="description" content="Senior IT Professional with 10+ years experience in systems implementation, network administration, and cybersecurity. Open to new opportunities.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border-light: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #60a5fa;
+            --secondary-color: #3b82f6;
+            --accent-color: #93c5fd;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --bg-light: #111827;
+            --bg-white: #1f2937;
+            --border-light: #374151;
+        }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-light);
+            transition: all 0.3s ease;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--bg-white);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--border-light);
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 2rem 6rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            padding: 0.875rem 2rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .skills-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-4px);
+        }
+
+        .skill-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .about-text {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--primary-color);
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 3rem;
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-left: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 2rem;
+            width: 12px;
+            height: 12px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 3px solid var(--bg-white);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .job-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .company-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .job-duration {
+            background: var(--bg-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .job-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .job-description ul {
+            margin-left: 1rem;
+            margin-top: 1rem;
+        }
+
+        .job-description li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 1rem;
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid var(--border-light);
+            border-radius: 8px;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-white);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .experience-timeline {
+                padding-left: 1rem;
+            }
+
+            .experience-item {
+                margin-left: 1rem;
+            }
+
+            .experience-item::before {
+                left: -2rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">Manny C.</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero fade-in">
+        <h1 class="hero-title">Manny Contreras</h1>
+        <p class="hero-subtitle">IT Management | Technology Wizard | IT Consultant | Sr IT Engineer | SysAdmin</p>
+        
+        <div class="hero-badges">
+            <span class="badge">#OpenToWork</span>
+            <span class="badge">#TechLeader</span>
+            <span class="badge">#ITOperations</span>
+            <span class="badge">#Automation</span>
+        </div>
+
+        <div class="cta-buttons">
+            <a href="#contact" class="btn-primary">Get In Touch</a>
+            <a href="mailto:mannydotco@gmail.com" class="btn-secondary">Email Me</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2 class="section-title slide-in-left">About Me</h2>
+        <div class="about-content">
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-title">🎯 Problem Solving</div>
+                    <p>Expert in diagnosing complex technical issues and implementing innovative solutions</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-title">📋 Project Management</div>
+                    <p>Proven track record of delivering projects on time and within budget</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-title">⚙️ Systems Management</div>
+                    <p>Comprehensive experience managing enterprise-level IT infrastructure</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-title">🔒 Security & Compliance</div>
+                    <p>Expert in NIST frameworks, security audits, and industry best practices</p>
+                </div>
+            </div>
+            <div class="about-text">
+                <h3 style="margin-bottom: 1rem; color: var(--primary-color);">Professional Summary</h3>
+                <p style="margin-bottom: 1.5rem;">Results-oriented IT professional with over a decade of hands-on experience in systems implementation, network administration, and cybersecurity. Proven track record of delivering projects on time and within budget while driving business success through innovative technology solutions.</p>
+                
+                <p style="margin-bottom: 1.5rem;">I am seeking a challenging mid to senior IT position where I can leverage my skills and experience to make a positive impact.</p>
+
+                <div style="margin-top: 2rem;">
+                    <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Key Strengths:</h4>
+                    <ul style="color: var(--text-secondary); line-height: 1.7;">
+                        <li>Strong negotiation management and leadership skills</li>
+                        <li>Strong vendor management & relationship experience</li>
+                        <li>Strong automation processes and skillset</li>
+                        <li>Multi-platform expertise: macOS, Windows, Linux</li>
+                        <li>International team management experience</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Senior Information Technology Engineer</div>
+                        <div class="company-name">Confidential Client</div>
+                    </div>
+                    <div class="job-duration">Oct 2023 - Present</div>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Managed and monitored all installed systems and infrastructure, including LANs, WANs, network segments, intranets, and other data communication systems</li>
+                        <li>Enhanced post-production equipment for media clients while providing 24/7 support to production teams</li>
+                        <li>Performed daily system monitoring across Linux servers, SAN servers, macOS and Windows systems</li>
+                        <li>Ensured highest level of security through NIST 800-171 and NIST 800-53 frameworks</li>
+                        <li>Completed security audits with Disney and Apple</li>
+                        <li>Created comprehensive documentation for system and network configurations</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Senior Manager of Technology (PSE)</div>
+                        <div class="company-name">Tastemade</div>
+                    </div>
+                    <div class="job-duration">Aug 2023 - Oct 2023</div>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Led technology infrastructure for international offices in Argentina, Brazil, and UK</li>
+                        <li>Developed strategies to enhance performance, security, and reliability of technology systems</li>
+                        <li>Collaborated with cross-functional teams to align technology solutions with business objectives</li>
+                        <li>Managed Palo Alto, Cisco, Arista, SNS EVO, QNAP, CrushFTP, and Meraki devices</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Information Technology Manager</div>
+                        <div class="company-name">Crooked Media</div>
+                    </div>
+                    <div class="job-duration">Jan 2023 - Aug 2023</div>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Led critical infrastructure improvements and technology management</li>
+                        <li>Collaborated with marketing/data team to build data engineering pipelines</li>
+                        <li>Managed vendor relationships and scaled IT roadmap with clear objectives</li>
+                        <li>Deployed media asset management platform with AI capabilities</li>
+                        <li>Created comprehensive IT documentation using Confluence</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Senior IT Manager</div>
+                        <div class="company-name">ATTN:</div>
+                    </div>
+                    <div class="job-duration">Feb 2022 - Dec 2022</div>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Oversaw IT team supporting 240+ employees in Mac environment</li>
+                        <li>Replaced outdated hardware and deployed JAMF, OKTA & CrowdStrike</li>
+                        <li>Added automation to Jira Service Desk improving SLA performance</li>
+                        <li>Achieved cost-effective budgeting and eliminated unnecessary spending</li>
+                        <li>Supported creative departments and managed IT SecOps processes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">IT Director</div>
+                        <div class="company-name">Jukin Media</div>
+                    </div>
+                    <div class="job-duration">Jul 2019 - Aug 2021</div>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Managed international offices in London, India, Los Angeles, and New York</li>
+                        <li>Promoted from IT Manager to IT Director in 6 months</li>
+                        <li>Implemented significant hardware updates and SaaS solutions</li>
+                        <li>Achieved over $100K in cost savings over two-year period</li>
+                        <li>Managed provisioning services using Jamf, Google Scripts, GAM, and Okta</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">IT Director/Consultant</div>
+                        <div class="company-name">Self-Employed</div>
+                    </div>
+                    <div class="job-duration">Sep 2010 - Dec 2018</div>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Provided IT consulting services to reduce company technology costs</li>
+                        <li>Secured networks through access monitoring, control, and evaluation</li>
+                        <li>Implemented network upgrades including server and desktop installations</li>
+                        <li>Performed data backups and recovery operations</li>
+                        <li>Established network policies, procedures, and firewall configurations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3 style="margin-bottom: 2rem; color: var(--primary-color);">Get In Touch</h3>
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <div>
+                        <strong>Email</strong><br>
+                        <a href="mailto:mannydotco@gmail.com" style="color: var(--primary-color);">mannydotco@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">💼</span>
+                    <div>
+                        <strong>LinkedIn</strong><br>
+                        <a href="https://www.linkedin.com/in/mannycodes" target="_blank" style="color: var(--primary-color);">linkedin.com/in/mannycodes</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🌐</span>
+                    <div>
+                        <strong>Website</strong><br>
+                        <a href="https://mannycontreras.com" target="_blank" style="color: var(--primary-color);">mannycontreras.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <div>
+                        <strong>Location</strong><br>
+                        Los Angeles, California
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border-light);">
+                    <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Current Status</h4>
+                    <div style="background: var(--bg-light); padding: 1rem; border-radius: 8px;">
+                        <strong style="color: var(--accent-color);">🚀 Open to Work</strong><br>
+                        <span style="color: var(--text-secondary);">Seeking challenging mid to senior IT positions</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3 style="margin-bottom: 2rem; color: var(--primary-color);">Send a Message</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Manny Contreras. All rights reserved. | Built with passion for technology excellence.</p>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+            
+            if (body.hasAttribute('data-theme')) {
+                body.removeAttribute('data-theme');
+                themeToggle.textContent = '🌙';
+                localStorage.removeItem('theme');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Load saved theme
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+            document.querySelector('.theme-toggle').textContent = '☀️';
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 0.8s ease-out';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.experience-item, .skill-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
